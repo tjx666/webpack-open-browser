@@ -1,0 +1,71 @@
+{
+    "name": "webpack-open-browser",
+    "version": "0.0.1",
+    "description": "open browser when webpack loads",
+    "homepage": "https://github.com/tjx666/webpack-open-browser",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:tjx666/webpack-open-browser.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tjx666/webpack-open-browser/issues"
+    },
+    "keywords": [
+        "webpack",
+        "plugin",
+        "open",
+        "browser"
+    ],
+    "author": "YuTengjing",
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "compile": "yarn clean && tsc",
+        "build": "yarn run compile && yarn run build-types",
+        "build-types": "tsc -p ./tsconfig.types.json",
+        "clean": "rimraf -rf ./dist",
+        "test": "yarn build && node ./test/plugin.test.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,js}": [
+            "eslint -c .eslintrc.js"
+        ],
+        "*.{ts,js,json,yml,md}": [
+            "prettier --write"
+        ]
+    },
+    "devDependencies": {
+        "@types/webpack": "^4.41.12",
+        "@types/webpack-dev-server": "^3.10.1",
+        "@typescript-eslint/eslint-plugin": "^2.28.0",
+        "@typescript-eslint/parser": "^2.28.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb-base": "^14.1.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-import": "^2.20.2",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.1.6",
+        "np": "^6.2.1",
+        "prettier": "^2.0.4",
+        "rimraf": "^3.0.2",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.1",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "peerDependencies": {
+        "webpack": "*"
+    },
+    "dependencies": {
+        "open": "^7.0.3"
+    }
+}
