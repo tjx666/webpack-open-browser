@@ -1,6 +1,6 @@
 {
     "name": "webpack-open-browser",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "open browser when webpack loads",
     "homepage": "https://github.com/tjx666/webpack-open-browser",
     "main": "dist/index.js",
@@ -29,7 +29,10 @@
         "build": "yarn run compile && yarn run build-types",
         "build-types": "tsc -p ./tsconfig.types.json",
         "clean": "rimraf -rf ./dist",
-        "test": "yarn build && node ./test/plugin.test.js"
+        "test": "yarn build && node ./test/plugin.test.js",
+        "lint": "eslint -c .eslintrc.js --ext .ts,.js {src,test}/**/*.{ts,js}",
+        "prepublish": "yarn run lint && yarn build",
+        "release": "np"
     },
     "husky": {
         "hooks": {
@@ -49,6 +52,7 @@
         "@types/webpack-dev-server": "^3.10.1",
         "@typescript-eslint/eslint-plugin": "^2.28.0",
         "@typescript-eslint/parser": "^2.28.0",
+        "audit-ci": "^2.5.1",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-config-prettier": "^6.10.1",
@@ -63,7 +67,7 @@
         "webpack-dev-server": "^3.10.3"
     },
     "peerDependencies": {
-        "webpack": "*"
+        "webpack": "^4.0.0"
     },
     "dependencies": {
         "open": "^7.0.3"

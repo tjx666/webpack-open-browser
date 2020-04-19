@@ -5,8 +5,9 @@
         "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
         "outDir": "./dist" /* Redirect output structure to the directory. */,
         "checkJs": false /* Report errors in .js files. */,
-        "allowJs": false,                       /* Allow javascript files to be compiled. */
+        "allowJs": false /* Allow javascript files to be compiled. */,
         "declaration": true /* Generates corresponding '.d.ts' file. */,
+        "removeComments": true /* Do not emit comments to output. */,
         // "incremental": true,                   /* Enable incremental compilation */
         // "lib": [],                             /* Specify library files to be included in the compilation. */
         // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
@@ -16,7 +17,6 @@
         // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
         // "composite": true,                     /* Enable project compilation */
         // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-        // "removeComments": true,                /* Do not emit comments to output. */
         // "noEmit": true,                        /* Do not emit outputs. */
         // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
         // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
