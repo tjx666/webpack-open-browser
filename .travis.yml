@@ -6,3 +6,4 @@ install:
 script:
     - npx audit-ci -m
     - yarn build
+    - npx bundlesize

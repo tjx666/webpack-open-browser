@@ -1,8 +1,10 @@
+const OFF = 0;
+
 module.exports = {
     env: {
         es6: true,
         node: true,
-        mocha: true
+        mocha: true,
     },
     extends: [
         'airbnb-base',
@@ -22,12 +24,24 @@ module.exports = {
     },
     plugins: ['@typescript-eslint'],
     rules: {
-        'func-names': 0,
-        'no-unused-expressions': 0,
-        'no-console': 0,
+        'func-names': OFF,
+        'no-console': OFF,
+        'no-unused-expressions': OFF,
 
-        '@typescript-eslint/no-explicit-any': 0,
+        'import/no-extraneous-dependencies': OFF,
 
-        'import/no-extraneous-dependencies': 0,
+        '@typescript-eslint/no-explicit-any': OFF,
     },
+    overrides: [
+        {
+            files: ['test/**/*.js'],
+            rules: {
+                'import/no-unresolved': OFF,
+
+                '@typescript-eslint/explicit-function-return-type': OFF,
+                '@typescript-eslint/no-unused-vars': OFF,
+                '@typescript-eslint/no-var-requires': OFF,
+            },
+        },
+    ],
 };

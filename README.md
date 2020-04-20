@@ -22,13 +22,14 @@ const commonConfig = {
   plugins: [
     // open http://localhost:3000 in default browser
     new WebpackOpenBrowser({ url: 'http://localhost:3000' }),
-    // use firefox to open
+    // more options
+    // specify firefox to open
     new WebpackOpenBrowser({ url: 'http://localhost:3000', browser: 'firefox' }),
-    // delay 3 seconds to open
+    // delay 3 seconds
     new WebpackOpenBrowser({ url: 'http://localhost:3000', delay: 3 * 1000 }),
     // By default, this plugin only works when no compile error
     new WebpackOpenBrowser({ url: 'http://localhost:3000', ignoreErrors: true }),
-    // You can open multiple urls in multiple browsers
+    // You can set a group of option to open multiple urls in multiple browsers
     new WebpackOpenBrowser([
       { url: 'http://localhost:3000', browser: 'chrome' },
       { url: 'http://localhost:3000', browser: 'firefox' },

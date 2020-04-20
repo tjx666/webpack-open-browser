@@ -8,6 +8,12 @@
     "files": [
         "dist/"
     ],
+    "bundlesize": [
+        {
+            "path": "./dist/index.js",
+            "maxSize": "3 kB"
+        }
+    ],
     "repository": {
         "type": "git",
         "url": "git@github.com:tjx666/webpack-open-browser.git"
@@ -21,6 +27,9 @@
         "open",
         "browser"
     ],
+    "engines": {
+        "node": ">=8"
+    },
     "author": "YuTengjing",
     "license": "MIT",
     "private": false,
@@ -57,6 +66,7 @@
         "@typescript-eslint/eslint-plugin": "^2.28.0",
         "@typescript-eslint/parser": "^2.28.0",
         "audit-ci": "^2.5.1",
+        "bundlesize": "^0.18.0",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-config-prettier": "^6.10.1",

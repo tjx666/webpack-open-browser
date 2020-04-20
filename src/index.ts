@@ -4,8 +4,8 @@ import open from 'open';
 export interface WebpackOpenBrowserOptionItem {
     url: string;
     browser?: string;
-    ignoreErrors?: boolean;
     delay?: number;
+    ignoreErrors?: boolean;
 }
 
 export type WebpackOpenBrowserOptions =
@@ -41,7 +41,7 @@ export class WebpackOpenBrowser {
             const isObject =
                 option !== null && (typeof option === 'object' || typeof option === 'function');
             if (!isObject) {
-                throw new TypeError('option item must be object!');
+                throw new TypeError('Option item must be object!');
             }
             if (!option.url) {
                 throw new TypeError('You must specific the url to open!');

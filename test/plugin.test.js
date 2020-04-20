@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars */
 const webpack = require('webpack');
 const { resolve } = require('path');
 
@@ -93,7 +92,7 @@ function testIgnoreErrorsArg() {
 
 // testRun();
 // testUrlArgument();
-testBrowserArgument();
+// testBrowserArgument();
 // testDelayArgument();
 // testOpenMultipleUrl();
 // testIgnoreErrorsArg();
