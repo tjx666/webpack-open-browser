@@ -78,3 +78,5 @@ export class WebpackOpenBrowser {
         compiler.hooks.done.tap('webpack-open-browser', once(handler));
     }
 }
+
+export default WebpackOpenBrowser;
