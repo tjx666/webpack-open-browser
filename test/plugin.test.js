@@ -90,7 +90,7 @@ function testIgnoreErrorsArg() {
     webpack(baseConfig).watch({}, handler);
 }
 
-// testRun();
+testRun();
 // testUrlArgument();
 // testBrowserArgument();
 // testDelayArgument();
