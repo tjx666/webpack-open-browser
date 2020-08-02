@@ -12,6 +12,7 @@ export type WebpackOpenBrowserOptions =
     | WebpackOpenBrowserOptionItem
     | WebpackOpenBrowserOptionItem[];
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function once<T extends Function>(fn: T): T {
     let called = false;
     function enhancedFn(this: any, ...args: any[]): void {
