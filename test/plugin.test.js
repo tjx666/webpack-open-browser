@@ -51,7 +51,8 @@ function testBrowserArgument() {
     baseConfig.plugins[0] = new WebpackOpenBrowser({
         url: 'https://github.com/',
         // browser: 'chrome',
-        browser: 'firefox',
+        // browser: 'Safari',
+        browser: 'Firefox Developer Edition',
     });
     webpack(baseConfig).watch({}, handler);
 }
@@ -90,9 +91,9 @@ function testIgnoreErrorsArg() {
     webpack(baseConfig).watch({}, handler);
 }
 
-testRun();
+// testRun();
 // testUrlArgument();
-// testBrowserArgument();
+testBrowserArgument();
 // testDelayArgument();
 // testOpenMultipleUrl();
 // testIgnoreErrorsArg();

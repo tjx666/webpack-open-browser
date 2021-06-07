@@ -13,7 +13,7 @@ export type WebpackOpenBrowserOptions =
     | WebpackOpenBrowserOptionItem[];
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function once<T extends Function>(fn: T): T {
+function once<T extends Function>(fn: T) {
     let called = false;
     function enhancedFn(this: any, ...args: any[]): void {
         if (!called) {
@@ -21,13 +21,17 @@ function once<T extends Function>(fn: T): T {
             fn.apply(this, args);
         }
     }
-    return (enhancedFn as unknown) as T;
+    return enhancedFn;
 }
 
 function openBrowser({ url, browser, delay = 0 }: WebpackOpenBrowserOptionItem): void {
     setTimeout(() => {
         if (browser) {
-            open(url, { app: browser });
+            open(url, {
+                app: {
+                    name: browser,
+                },
+            });
         } else {
             open(url);
         }
@@ -76,6 +80,7 @@ export class WebpackOpenBrowser {
                 }
             }
         };
+        // open browser first time of build
         compiler.hooks.done.tap('webpack-open-browser', once(handler));
     }
 }

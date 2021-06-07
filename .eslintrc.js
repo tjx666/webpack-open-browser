@@ -11,7 +11,6 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         'prettier',
-        'prettier/@typescript-eslint',
     ],
     globals: {
         Atomics: 'readonly',
@@ -28,6 +27,7 @@ module.exports = {
         'no-console': OFF,
         'no-unused-expressions': OFF,
 
+        'import/extensions': OFF,
         'import/no-extraneous-dependencies': OFF,
 
         '@typescript-eslint/no-explicit-any': OFF,
