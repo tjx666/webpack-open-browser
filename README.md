@@ -1,6 +1,6 @@
 # webpack-open-browser
 
-[![npm](https://img.shields.io/npm/v/webpack-open-browser)](https://www.npmjs.com/package/webpack-open-browser) [![npm](https://img.shields.io/npm/dm/webpack-open-browser)](https://www.npmjs.com/package/webpack-open-browser) [![Build Status](https://travis-ci.org/tjx666/webpack-open-browser.svg?branch=master)](https://travis-ci.org/tjx666/webpack-open-browser) [![dependencies Status](https://david-dm.org/tjx666/webpack-open-browser/status.svg)](https://david-dm.org/tjx666/webpack-open-browser) [![devDependencies Status](https://david-dm.org/tjx666/webpack-open-browser/dev-status.svg)](https://david-dm.org/tjx666/webpack-open-browser?type=dev) [![Known Vulnerabilities](https://snyk.io/test/github/tjx666/webpack-open-browser/badge.svg?targetFile=package.json)](https://snyk.io/test/github/tjx666/webpack-open-browser?targetFile=package.json) [![Percentage of issues still open](https://isitmaintained.com/badge/open/tjx666/webpack-open-browser.svg)](http://isitmaintained.com/project/tjx666/webpack-open-browser') [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
+[![npm](https://img.shields.io/npm/v/webpack-open-browser)](https://www.npmjs.com/package/webpack-open-browser) [![npm](https://img.shields.io/npm/dm/webpack-open-browser)](https://www.npmjs.com/package/webpack-open-browser) [![Known Vulnerabilities](https://snyk.io/test/github/tjx666/webpack-open-browser/badge.svg?targetFile=package.json)](https://snyk.io/test/github/tjx666/webpack-open-browser?targetFile=package.json) [![Percentage of issues still open](https://isitmaintained.com/badge/open/tjx666/webpack-open-browser.svg)](http://isitmaintained.com/project/tjx666/webpack-open-browser') [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 
 open browser when webpack loads
 
@@ -14,6 +14,8 @@ yarn add webpack-open-browser -D
 ```
 
 ## :wrench: Configuration
+
+You can read the source or test code for more details.
 
 ```javascript
 const { WebpackOpenBrowser } = require('webpack-open-browser');
