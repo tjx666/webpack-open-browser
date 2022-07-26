@@ -1,4 +1,4 @@
-import { Compiler, Stats } from 'webpack';
+import type { Compiler, Stats } from 'webpack';
 import open from 'open';
 
 export interface WebpackOpenBrowserOptionItem {
@@ -12,16 +12,18 @@ export type WebpackOpenBrowserOptions =
     | WebpackOpenBrowserOptionItem
     | WebpackOpenBrowserOptionItem[];
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-function once<T extends Function>(fn: T) {
+function once<T extends (...args: any) => any>(fn: T) {
     let called = false;
+    let result: ReturnType<T>;
     function enhancedFn(this: any, ...args: any[]): void {
         if (!called) {
             called = true;
-            fn.apply(this, args);
+            result = fn.apply(this, args);
+            return result;
         }
+        return result;
     }
-    return enhancedFn;
+    return enhancedFn as T;
 }
 
 function openBrowser({ url, browser, delay = 0 }: WebpackOpenBrowserOptionItem): void {
@@ -37,6 +39,8 @@ function openBrowser({ url, browser, delay = 0 }: WebpackOpenBrowserOptionItem):
         }
     }, delay);
 }
+
+const pluginName = 'WebpackOpenBrowser';
 
 export class WebpackOpenBrowser {
     private isWatchModel = false;
@@ -61,7 +65,7 @@ export class WebpackOpenBrowser {
     }
 
     public apply(compiler: Compiler): void {
-        compiler.hooks.watchRun.tap('adjust-whether-watch-mode', () => {
+        compiler.hooks.watchRun.tap(`${pluginName}.recognizeWhetherRunInWatchMode`, () => {
             this.isWatchModel = true;
         });
 
@@ -81,7 +85,7 @@ export class WebpackOpenBrowser {
             }
         };
         // open browser first time of build
-        compiler.hooks.done.tap('webpack-open-browser', once(handler));
+        compiler.hooks.done.tap(pluginName, once(handler));
     }
 }
 
