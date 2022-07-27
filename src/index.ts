@@ -6,6 +6,7 @@ export interface WebpackOpenBrowserOptionItem {
     browser?: string;
     delay?: number;
     ignoreErrors?: boolean;
+    arguments: readonly string[] | undefined;
 }
 
 export type WebpackOpenBrowserOptions =
@@ -26,12 +27,18 @@ function once<T extends (...args: any) => any>(fn: T) {
     return enhancedFn as T;
 }
 
-function openBrowser({ url, browser, delay = 0 }: WebpackOpenBrowserOptionItem): void {
+function openBrowser({
+    url,
+    browser,
+    delay = 0,
+    arguments: browserArgs,
+}: WebpackOpenBrowserOptionItem): void {
     setTimeout(() => {
         if (browser) {
             open(url, {
                 app: {
                     name: browser,
+                    arguments: browserArgs,
                 },
             });
         } else {
@@ -90,3 +97,4 @@ export class WebpackOpenBrowser {
 }
 
 export default WebpackOpenBrowser;
+export { apps } from 'open';

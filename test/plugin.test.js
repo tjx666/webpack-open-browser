@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 
-const { WebpackOpenBrowser } = require('../dist/index');
+const { WebpackOpenBrowser, apps } = require('../dist/index');
 
 /** @type {import('webpack').Configuration} */
 const baseConfig = {
@@ -52,7 +52,8 @@ function testBrowserArgument() {
         url: 'https://github.com/',
         // browser: 'chrome',
         // browser: 'Safari',
-        browser: 'Firefox Developer Edition',
+        // browser: 'Firefox Developer Edition',
+        browser: apps.chrome,
     });
     webpack(baseConfig).watch({}, handler);
 }
@@ -91,9 +92,29 @@ function testIgnoreErrorsArg() {
     webpack(baseConfig).watch({}, handler);
 }
 
+function testOpenPrivateFirefox() {
+    baseConfig.plugins[0] = new WebpackOpenBrowser({
+        url: 'https://github.com/',
+        browser: 'Firefox Developer Edition',
+        arguments: ['-private'],
+    });
+    webpack(baseConfig).watch({}, handler);
+}
+
+function testOpenIncognitoChrome() {
+    baseConfig.plugins[0] = new WebpackOpenBrowser({
+        url: 'https://github.com/',
+        browser: apps.chrome,
+        arguments: ['--incognito'],
+    });
+    webpack(baseConfig).watch({}, handler);
+}
+
 // testRun();
 // testUrlArgument();
-testBrowserArgument();
+// testBrowserArgument();
 // testDelayArgument();
 // testOpenMultipleUrl();
 // testIgnoreErrorsArg();
+// testOpenPrivateFirefox();
+// testOpenIncognitoChrome();
