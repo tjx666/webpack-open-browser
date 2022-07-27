@@ -28,13 +28,13 @@
     "license": "MIT",
     "private": false,
     "scripts": {
-        "compile": "yarn clean && tsc",
-        "build": "yarn run compile && yarn run build-types",
+        "compile": "pnpm clean && tsc",
+        "build": "pnpm run compile && pnpm run build-types",
         "build-types": "tsc -p ./tsconfig.types.json",
         "clean": "rimraf -rf ./dist",
-        "test": "yarn build && node ./test/plugin.test.js",
+        "test": "pnpm build && node ./test/plugin.test.js",
         "lint": "eslint -c .eslintrc.js --ext .ts,.js src/**/*.ts test/**/*.js",
-        "prepublish": "yarn run lint && yarn build",
+        "prepublishOnly": "pnpm run lint && pnpm build",
         "prepare": "husky install"
     },
     "lint-staged": {
